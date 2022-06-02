@@ -19,5 +19,6 @@ jobs:
         with:
             toolchain: stable
             override: true
+            
       - name: Run build-release
         - run: .\\build-release.bat
