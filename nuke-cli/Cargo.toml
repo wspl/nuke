@@ -1,0 +1,26 @@
+[package]
+name = "nuke-cli"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+nuke-shared = { path = "../nuke-shared" }
+clap = "3.1.9"
+lazy_static = "1.4"
+dirs = "4.0"
+anyhow = "1.0"
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+compress-tools = "0.12"
+sha-1 = "0.9"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+semver = "1.0"
+regex = "1.5"
+serde_yaml = "0.8"
+indicatif = "0.16"
+colored = "2"
+dialoguer = "0.9"
+winreg = "0.10"
+winapi = { version = "0.3", features = ["winuser"] }

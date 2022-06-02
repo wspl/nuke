@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "nuke-cli",
+    "nuke-launcher",
+    "nuke-shared"
+]
