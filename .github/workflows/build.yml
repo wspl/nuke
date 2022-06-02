@@ -14,10 +14,14 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Install latest stable
+      - name: Setup vcpkg
+        uses: lukka/run-vcpkg@v10
+        with:
+          runVcpkgInstall: true
+      - name: Install Rust Toolchain
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
           override: true
-      - name: Run build-release
+      - name: Build Release
         run: .\\build-release.bat
