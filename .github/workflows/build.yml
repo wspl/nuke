@@ -1,0 +1,23 @@
+name: Build
+
+on:
+  push:
+    branches: [ workflow ]
+  pull_request:
+    branches: [ workflow ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install latest stable
+        uses: actions-rs/toolchain@v1
+        with:
+            toolchain: stable
+            override: true
+      - name: Run build-release
+        - run: .\\build-release.bat
