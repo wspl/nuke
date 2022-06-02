@@ -17,14 +17,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Setup vcpkg
-        uses: lukka/run-vcpkg@v10
+        uses: lukka/run-vcpkg@main
         with:
           vcpkgGitCommitId: '14e7bb4ae24616ec54ff6b2f6ef4e8659434ea44'
           runVcpkgInstall: true
-      - name: Install Rust Toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
-      - name: Build Release
-        run: .\\build-release.bat
+      # - name: Install Rust Toolchain
+      #   uses: actions-rs/toolchain@v1
+      #   with:
+      #     toolchain: stable
+      #     override: true
+      # - name: Build Release
+      #   run: .\\build-release.bat
