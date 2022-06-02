@@ -17,8 +17,7 @@ jobs:
       - name: Install latest stable
         uses: actions-rs/toolchain@v1
         with:
-            toolchain: stable
-            override: true
-            
+          toolchain: stable
+          override: true
       - name: Run build-release
-        - run: .\\build-release.bat
+        run: .\\build-release.bat
