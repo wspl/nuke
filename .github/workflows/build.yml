@@ -18,17 +18,17 @@ jobs:
       - name: Cache vcpkg installed
         uses: actions/cache@v3
         with:
-          path: $VCPKG_ROOT
+          path: C:\vcpkg\installed
           key: vcpkg-test
       - name: Cache vcpkg downloads
         uses: actions/cache@v3
         with:
-          path: $VCPKG_ROOT/downloads
+          path: C:\vcpkg\downloads
           key: vcpkg-test
       - name: Setup vcpkg
         run: |
-          mkdir $VCPKG_ROOT/downloads
-          mkdir $VCPKG_ROOT/installed
+          mkdir C:\vcpkg\downloads
+          mkdir C:\vcpkg\installed
           vcpkg integrate install
       #    vcpkg install libarchive:x64-windows-static
       # - name: Install Rust Toolchain
