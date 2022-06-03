@@ -15,7 +15,7 @@ jobs:
     runs-on: windows-latest
     defaults:
       run:
-        shell: msys2 {0}
+        shell: bash
     steps:
       - uses: actions/checkout@v3
       - name: Cache vcpkg installed
