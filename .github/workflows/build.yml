@@ -19,8 +19,8 @@ jobs:
         uses: actions/cache@v3
         with:
           path: C:\vcpkg\installed
-          key: vcpkg
-      - name: Setup vcpkg-libarchive-x64-windows-static-md
+          key: vcpkg-libarchive-x64-windows-static-md
+      - name: Setup vcpkg
         run: |
           vcpkg integrate install
           vcpkg install libarchive:x64-windows-static-md
