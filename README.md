@@ -24,7 +24,7 @@ An out-of-the-box Node.js version manager for Windows, aimed at using different 
 | No elevated privileges required   | ✅  |             | ✅   |         |
 | Differentiate Architecture        | ✅  | ✅          | ✅   |         |
 
-My research may not have gone far enough, please feel free to correct any inaccurate information.
+My investigation may not have gone far enough, please feel free to correct any inaccurate information.
 
 ## Setup
 ### 1. Install Nuke
