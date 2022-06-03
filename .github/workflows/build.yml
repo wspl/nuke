@@ -19,7 +19,7 @@ jobs:
         run: |
           git clone https://github.com/Microsoft/vcpkg.git
           .\\vcpkg\\bootstrap-vcpkg.bat
-          vcpkg install libarchive --triple x64-windows-static-md
+          vcpkg install libarchive --triplet x64-windows-static-md
           vcpkg integrate install
       # - name: Install Rust Toolchain
       #   uses: actions-rs/toolchain@v1
