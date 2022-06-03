@@ -20,11 +20,11 @@ jobs:
         with:
           path: C:\vcpkg\installed
           key: vcpkg
-      - name: Cache vcpkg downloads
-        uses: actions/cache@v3
-        with:
-          path: C:\vcpkg\downloads
-          key: vcpkg
+      # - name: Cache vcpkg downloads
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: C:\vcpkg\downloads
+      #     key: vcpkg
       - name: Setup vcpkg
         run: |
           vcpkg integrate install
