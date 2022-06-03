@@ -4,6 +4,8 @@
 [![Build](https://github.com/wspl/nuke/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/wspl/nuke/actions/workflows/build.yml)
 [![License](https://img.shields.io/github/license/wspl/nuke)](https://github.com/wspl/nuke/blob/master/LICENSE)
 
+[中文介绍](./README_zh.md)
+
 An out-of-the-box Node.js version manager for Windows, aimed at using different versions of Node.js in different terminals at the same time.
 
 **There are still some key features missing from this tool, and I will eventually complete them. If you want to participate, please feel free to create a PR.**
