@@ -15,20 +15,15 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Cache vcpkg installed
+      - name: Restore vcpkg Cache
         uses: actions/cache@v3
         with:
           path: C:\vcpkg\installed
           key: vcpkg
-      # - name: Cache vcpkg downloads
-      #   uses: actions/cache@v3
-      #   with:
-      #     path: C:\vcpkg\downloads
-      #     key: vcpkg
-      - name: Setup vcpkg
+      - name: Setup vcpkg-libarchive-x64-windows-static-md
         run: |
           vcpkg integrate install
-          vcpkg install libarchive:x64-windows-static
+          vcpkg install libarchive:x64-windows-static-md
       - name: Install Rust Toolchain
         uses: actions-rs/toolchain@v1
         with:
