@@ -12,15 +12,15 @@ env:
 
 jobs:
   build:
-    runs-on: windows-2019
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Cache vcpkg installed
+      - name: Cache vcpkg Installed
         uses: actions/cache@v1.0.3
         with:
           path: $VCPKG_ROOT/installed
           key: vcpkg-test
-      - name: Cache vcpkg downloads
+      - name: Cache vcpkg Downloads
         uses: actions/cache@v1.0.3
         with:
           path: $VCPKG_ROOT/downloads
@@ -30,6 +30,8 @@ jobs:
           mkdir $VCPKG_ROOT/downloads
           mkdir $VCPKG_ROOT/installed
           vcpkg integrate install
+      - name: Post Process vcpkg
+        run:  vcpkg integrate remove
       #    vcpkg install libarchive:x64-windows-static
       # - name: Install Rust Toolchain
       #   uses: actions-rs/toolchain@v1
