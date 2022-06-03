@@ -22,7 +22,7 @@ An out-of-the-box Node.js version manager for Windows, aimed at using different 
 | Use multiple version at same time | ✅  |             | ✅   | ✅     |
 | No post-script required           | ✅  | ✅          |      | ✅     |
 | No elevated privileges required   | ✅  |             | ✅   |         |
-| Differentiate Architecture        | ✅  | ✅          | ✅   |         |
+| Install different Node.js architectures        | ✅  | ✅          | ✅   |         |
 
 My investigation may not have gone far enough, please feel free to correct any inaccurate information.
 
