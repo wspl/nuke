@@ -13,20 +13,17 @@ env:
 jobs:
   build:
     runs-on: windows-latest
-    defaults:
-      run:
-        shell: bash
     steps:
       - uses: actions/checkout@v3
       - name: Cache vcpkg installed
-        uses: actions/cache@v1.0.3
+        uses: actions/cache@v3
         with:
-          path: /c/vcpkg/installed
+          path: $VCPKG_ROOT
           key: vcpkg-test
       - name: Cache vcpkg downloads
-        uses: actions/cache@v1.0.3
+        uses: actions/cache@v3
         with:
-          path: /c/vcpkg/downloads
+          path: $VCPKG_ROOT/downloads
           key: vcpkg-test
       - name: Setup vcpkg
         run: |
