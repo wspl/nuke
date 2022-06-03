@@ -10,28 +10,30 @@ env:
   CARGO_TERM_COLOR: always
   VCPKG_ROOT: 'C:\vcpkg'
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   build:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Cache vcpkg Installed
+      - name: Cache vcpkg installed
         uses: actions/cache@v1.0.3
         with:
-          path: $VCPKG_ROOT/installed
+          path: /c/vcpkg/installed
           key: vcpkg-test
-      - name: Cache vcpkg Downloads
+      - name: Cache vcpkg downloads
         uses: actions/cache@v1.0.3
         with:
-          path: $VCPKG_ROOT/downloads
+          path: /c/vcpkg/downloads
           key: vcpkg-test
       - name: Setup vcpkg
         run: |
           mkdir $VCPKG_ROOT/downloads
           mkdir $VCPKG_ROOT/installed
-      #    vcpkg integrate install
-      #- name: Post Process vcpkg
-      #  run:  vcpkg integrate remove
+          vcpkg integrate install
       #    vcpkg install libarchive:x64-windows-static
       # - name: Install Rust Toolchain
       #   uses: actions-rs/toolchain@v1
