@@ -10,13 +10,12 @@ env:
   CARGO_TERM_COLOR: always
   VCPKG_ROOT: 'C:\vcpkg'
 
-defaults:
-  run:
-    shell: bash
-
 jobs:
   build:
     runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
     steps:
       - uses: actions/checkout@v3
       - name: Cache vcpkg installed
