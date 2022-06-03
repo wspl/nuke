@@ -8,19 +8,27 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
-  VCPKG_ROOT: '${{ github.workspace }}/vcpkg'
+  VCPKG_ROOT: 'C:\vcpkg'
 
 jobs:
   build:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Cache vcpkg installed
+        uses: actions/cache@v1.0.3
+        with:
+          path: $VCPKG_ROOT/installed
+          key: vcpkg
+      - name: Cache vcpkg downloads
+        uses: actions/cache@v1.0.3
+        with:
+          path: $VCPKG_ROOT/downloads
+          key: vcpkg
       - name: Setup vcpkg
         run: |
-          git clone https://github.com/Microsoft/vcpkg.git
-          .\\vcpkg\\bootstrap-vcpkg.bat
-          vcpkg install libarchive --triplet x64-windows-static-md
           vcpkg integrate install
+          vcpkg install libarchive:x64-windows-static
       # - name: Install Rust Toolchain
       #   uses: actions-rs/toolchain@v1
       #   with:
