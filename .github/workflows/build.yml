@@ -1,0 +1,46 @@
+name: Build
+
+on: push
+
+env:
+  CARGO_TERM_COLOR: always
+  VCPKG_ROOT: 'C:\vcpkg'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Restore vcpkg Cache
+        uses: actions/cache@v3
+        with:
+          path: C:\vcpkg\installed
+          key: vcpkg-libarchive-x64-windows-static-md
+      - name: Setup vcpkg
+        run: |
+          vcpkg integrate install
+          vcpkg install libarchive:x64-windows-static-md
+      - name: Install Rust Toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+      - name: Restore cargo Cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      - name: Build Release
+        run: |
+          .\build-release.bat
+          mv .\target\release\nuke-cli.exe nuke.exe
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: nuke.exe
